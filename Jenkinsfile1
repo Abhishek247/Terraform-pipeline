@@ -21,12 +21,14 @@ pipeline {
          }
 	 stage('TerraformPlan'){ 
               steps { 
-                     sh "sudo terraform plan"                  
+                     sh "sudo terraform plan -out terraform.tfplan;echo \$? > status"      
+		     stash name: "terraform-plan", includes: "terraform.tfplan
              } 
          }
 	 stage ('TerraformApply'){
 	 	steps{
-		     sh "sudo terraform apply -auto-approve"
+		     unstash "terraform-plan"
+		     sh "sudo terraform apply terraform.tfplan"
 		}
 	 }
 	 
