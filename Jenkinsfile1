@@ -24,6 +24,11 @@ pipeline {
                      sh "sudo terraform plan"                  
              } 
          }
+	 stage ('TerraformApply'){
+	 	steps{
+		     sh "sudo terraform apply -auto-approve"
+		}
+	 }
 	 
 	}		 
 }
