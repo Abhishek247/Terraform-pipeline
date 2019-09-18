@@ -21,7 +21,7 @@ pipeline {
          }
 	 stage('TerraformPlan'){ 
               steps { 
-                     sh "sudo terraform plan -out terraform.tfplan      
+                     sh "sudo terraform plan -out terraform.tfplan"      
 		     stash name: "terraform-plan", includes: "terraform.tfplan"
              } 
          }
