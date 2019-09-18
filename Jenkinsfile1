@@ -16,19 +16,19 @@ pipeline {
 		}
       	stage('TerraformInit'){ 
          	steps { 
-                     sh "sudo terraform init"                  
+                     sh "terraform init"                  
              	} 
          }
 	 stage('TerraformPlan'){ 
               steps { 
-                     sh "sudo terraform plan -out terraform.tfplan"      
+                     sh "terraform plan -out terraform.tfplan"      
 		     stash name: "terraform-plan", includes: "terraform.tfplan"
              } 
          }
 	 stage ('TerraformApply'){
 	 	steps{
 		     unstash "terraform-plan"
-		     sh "sudo terraform apply terraform.tfplan"
+		     sh "terraform apply terraform.tfplan"
 		}
 	 }
 	 stage ('TerraformShow'){
