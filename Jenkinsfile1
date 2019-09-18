@@ -38,7 +38,5 @@ pipeline {
 	 }
 	 
 	}
-tags{
-	Name = "MyEC2Instance"
-	}
+
 }
