@@ -8,6 +8,6 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
   key_name      = "Mykeypair100"
   tags{
-	Name = "MyEC2Instance"
+	"Name": "MyEC2Instance"
 	}
 }
