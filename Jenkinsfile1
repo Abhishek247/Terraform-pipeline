@@ -22,12 +22,12 @@ pipeline {
 	 stage('TerraformPlan'){ 
               steps { 
                      sh "terraform plan -out terraform.tfplan"      
-		     stash name: "terraform-plan", includes: "terraform.tfplan"
+		     
              } 
          }
 	 stage ('TerraformApply'){
 	 	steps{
-		     unstash "terraform-plan"
+		     //unstash "terraform-plan"
 		     sh "terraform apply terraform.tfplan"
 		}
 	 }
