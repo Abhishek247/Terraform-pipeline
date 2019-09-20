@@ -14,6 +14,12 @@ pipeline {
 			sh "rm -rf terraform.zip"
 			}
 		}
+	stage('Git clone')
+	{
+		steps{
+			sh "git clone https://github.com/Abhishek247/Terraform-pipeline.git"
+		}
+	}
       	stage('TerraformInit'){ 
          	steps { 
                      sh "terraform init"                  
