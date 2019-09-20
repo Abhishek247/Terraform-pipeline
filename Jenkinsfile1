@@ -33,7 +33,6 @@ pipeline {
          }
 	 stage ('TerraformApply'){
 	 	steps{
-		     //unstash "terraform-plan"
 		     sh "terraform apply terraform.tfplan"
 		}
 	 }
@@ -42,7 +41,6 @@ pipeline {
 		     sh "terraform show"
 		}
 	 }
-	 
 	}
 
 }
