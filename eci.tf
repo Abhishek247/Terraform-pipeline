@@ -9,6 +9,5 @@ resource "aws_instance" "example" {
   key_name      = "Mykeypair100"
   tags		= {
      Name	= "MyEC2Instance"
-     Billing    = "My Card"
 	  }
 }
