@@ -12,12 +12,16 @@ pipeline {
 			sh "unzip terraform.zip"
 			sh "sudo mv terraform /usr/bin"
 			sh "rm -rf terraform.zip"
+			sh "rm -rf *.tf*"
+			sh "rm -rf Terraform-pipeline"
 			}
 		}
 	stage('Git clone')
 	{
 		steps{
 			sh "git clone https://github.com/Abhishek247/Terraform-pipeline.git"
+			sh "mv Terraform-pipeline/* $WORKSPACE"
+			sh "ls -al"
 		}
 	}
       	stage('TerraformInit'){ 
